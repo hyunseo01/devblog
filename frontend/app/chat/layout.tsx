@@ -1,5 +1,4 @@
 import Header from "@/components/header/Header";
-import Contact from "@/components/portfolio/Contact";
 
 export default function BoardsLayout({
   children,

@@ -5,6 +5,8 @@ import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
+import type { Swiper as SwiperClass } from "swiper";
+import type { NavigationOptions } from "swiper/types";
 
 import { useRef, useState, useEffect } from "react";
 
@@ -17,7 +19,9 @@ interface Project {
 export default function Projects() {
   const prevRef = useRef<HTMLButtonElement>(null);
   const nextRef = useRef<HTMLButtonElement>(null);
-  const [swiperInstance, setSwiperInstance] = useState<any>(null);
+  const [swiperInstance, setSwiperInstance] = useState<SwiperClass | null>(
+    null,
+  );
   const [current, setCurrent] = useState(1);
   const [projects, setProjects] = useState<Project[]>([]);
 
@@ -38,9 +42,16 @@ export default function Projects() {
   }, []);
 
   useEffect(() => {
-    if (swiperInstance && prevRef.current && nextRef.current) {
-      swiperInstance.params.navigation.prevEl = prevRef.current;
-      swiperInstance.params.navigation.nextEl = nextRef.current;
+    if (
+      swiperInstance &&
+      typeof swiperInstance.params.navigation === "object" &&
+      swiperInstance.params.navigation !== null &&
+      prevRef.current &&
+      nextRef.current
+    ) {
+      const navigation = swiperInstance.params.navigation as NavigationOptions;
+      navigation.prevEl = prevRef.current;
+      navigation.nextEl = nextRef.current;
       swiperInstance.navigation.init();
       swiperInstance.navigation.update();
     }
