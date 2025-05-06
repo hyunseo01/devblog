@@ -44,6 +44,16 @@ const projectData = [
               바로가기
             </Link>
           </p>
+          <p>
+            <strong>블로그:</strong>{" "}
+            <Link
+              href="https://www.devblog.work/works/1"
+              className="underline"
+              target="_blank"
+            >
+              바로가기
+            </Link>
+          </p>
         </div>
 
         <div>
