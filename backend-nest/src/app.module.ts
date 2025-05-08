@@ -26,6 +26,7 @@ import { BoardCategoryModule } from './board-category/board-category.module';
       database: process.env.DB_DATABASE,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true, // 개발 환경에서만 true로 설정
+      charset: 'utf8mb4',
     }),
     UserModule,
     AuthModule,

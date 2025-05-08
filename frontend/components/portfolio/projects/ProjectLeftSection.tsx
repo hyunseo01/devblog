@@ -5,7 +5,7 @@ import { ReactNode } from "react";
 type Props = {
   title: string;
   desc: ReactNode;
-  items: string[]; // ✅ 관련내용 리스트를 props로 받음
+  items: string[];
   onSelect: (key: string) => void;
 };
 
@@ -22,11 +22,11 @@ export default function ProjectLeftSection({
         {desc}
       </div>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 mb-[10px]">
         {items.map((text, idx) => (
           <button
             key={idx}
-            onClick={() => onSelect(text)} // ✅ 이제 key도 외부에서 관리 가능
+            onClick={() => onSelect(`keyword-${idx}`)}
             className="w-full px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded text-left text-sm font-medium"
           >
             {text}

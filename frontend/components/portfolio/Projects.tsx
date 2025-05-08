@@ -33,7 +33,6 @@ const projectData = [
               바로가기
             </Link>
           </p>
-
           <p>
             <strong>GitHub:</strong>{" "}
             <Link
@@ -55,7 +54,6 @@ const projectData = [
             </Link>
           </p>
         </div>
-
         <div>
           <strong>기술 스택:</strong>
           <br />
